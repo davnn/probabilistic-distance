@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="David Muhr" />
+  <meta name="author" content="Michael Affenzeller" />
+  <meta name="author" content="Josef Küng" />
+  <meta name="dcterms.date" content="2023-07-11" />
+  <title>A Probabilistic Transformation of Distance-Based Outliers</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="files/style.css" />
+  <link rel="stylesheet" href="files/custom.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">A Probabilistic Transformation of Distance-Based
+Outliers</h1>
+<p class="author">David Muhr</p>
+<p class="author">Michael Affenzeller</p>
+<p class="author">Josef Küng</p>
+<p class="date">2023-07-11</p>
+</header>
+<p><a href="/">Back to the overview</a></p>
+<h3 id="grid-normal">Grid (normal)</h3>
+<p><img src="/images/grid/normal/35.png" /> <img
+src="/images/grid/normal/36.png" /> <img
+src="/images/grid/normal/37.png" /> <img
+src="/images/grid/normal/38.png" /> <img
+src="/images/grid/normal/39.png" /> <img
+src="/images/grid/normal/40.png" /> <img
+src="/images/grid/normal/41.png" /> <img
+src="/images/grid/normal/42.png" /> <img
+src="/images/grid/normal/43.png" /> <img
+src="/images/grid/normal/44.png" /> <img
+src="/images/grid/normal/45.png" /> <img
+src="/images/grid/normal/46.png" /> <img
+src="/images/grid/normal/47.png" /> <img
+src="/images/grid/normal/48.png" /> <img
+src="/images/grid/normal/49.png" /> <img
+src="/images/grid/normal/50.png" /> <img
+src="/images/grid/normal/51.png" /> <img
+src="/images/grid/normal/52.png" /> <img
+src="/images/grid/normal/53.png" /> <img
+src="/images/grid/normal/54.png" /> <img
+src="/images/grid/normal/55.png" /></p>
+<h3 id="grid-outlier">Grid (outlier)</h3>
+<p><img src="/images/grid/outlier/0.png" /> <img
+src="/images/grid/outlier/1.png" /> <img
+src="/images/grid/outlier/10.png" /> <img
+src="/images/grid/outlier/11.png" /> <img
+src="/images/grid/outlier/12.png" /> <img
+src="/images/grid/outlier/13.png" /> <img
+src="/images/grid/outlier/14.png" /> <img
+src="/images/grid/outlier/15.png" /> <img
+src="/images/grid/outlier/16.png" /> <img
+src="/images/grid/outlier/17.png" /> <img
+src="/images/grid/outlier/18.png" /> <img
+src="/images/grid/outlier/19.png" /> <img
+src="/images/grid/outlier/2.png" /> <img
+src="/images/grid/outlier/20.png" /> <img
+src="/images/grid/outlier/21.png" /> <img
+src="/images/grid/outlier/22.png" /> <img
+src="/images/grid/outlier/23.png" /> <img
+src="/images/grid/outlier/24.png" /> <img
+src="/images/grid/outlier/25.png" /> <img
+src="/images/grid/outlier/26.png" /> <img
+src="/images/grid/outlier/27.png" /> <img
+src="/images/grid/outlier/28.png" /> <img
+src="/images/grid/outlier/29.png" /> <img
+src="/images/grid/outlier/3.png" /> <img
+src="/images/grid/outlier/30.png" /> <img
+src="/images/grid/outlier/31.png" /> <img
+src="/images/grid/outlier/32.png" /> <img
+src="/images/grid/outlier/33.png" /> <img
+src="/images/grid/outlier/34.png" /> <img
+src="/images/grid/outlier/4.png" /> <img
+src="/images/grid/outlier/5.png" /> <img
+src="/images/grid/outlier/56.png" /> <img
+src="/images/grid/outlier/57.png" /> <img
+src="/images/grid/outlier/58.png" /> <img
+src="/images/grid/outlier/59.png" /> <img
+src="/images/grid/outlier/6.png" /> <img
+src="/images/grid/outlier/60.png" /> <img
+src="/images/grid/outlier/61.png" /> <img
+src="/images/grid/outlier/62.png" /> <img
+src="/images/grid/outlier/63.png" /> <img
+src="/images/grid/outlier/64.png" /> <img
+src="/images/grid/outlier/65.png" /> <img
+src="/images/grid/outlier/66.png" /> <img
+src="/images/grid/outlier/67.png" /> <img
+src="/images/grid/outlier/68.png" /> <img
+src="/images/grid/outlier/69.png" /> <img
+src="/images/grid/outlier/7.png" /> <img
+src="/images/grid/outlier/70.png" /> <img
+src="/images/grid/outlier/71.png" /> <img
+src="/images/grid/outlier/72.png" /> <img
+src="/images/grid/outlier/73.png" /> <img
+src="/images/grid/outlier/74.png" /> <img
+src="/images/grid/outlier/75.png" /> <img
+src="/images/grid/outlier/76.png" /> <img
+src="/images/grid/outlier/77.png" /> <img
+src="/images/grid/outlier/8.png" /> <img
+src="/images/grid/outlier/9.png" /></p>
+</body>
+</html>

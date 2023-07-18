@@ -1,0 +1,22 @@
+p.author {
+    margin: 0;
+    line-height: 1em;
+    font-size: 14px;
+    text-align: right;
+}
+p.date {
+    font-size: 14px;
+    text-align: right;
+}
+p {
+    text-align: justify;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+@media screen and (max-width: 600px) {
+    th {
+      padding: 2px;
+    }
+}

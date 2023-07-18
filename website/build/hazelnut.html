@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="David Muhr" />
+  <meta name="author" content="Michael Affenzeller" />
+  <meta name="author" content="Josef Küng" />
+  <meta name="dcterms.date" content="2023-07-11" />
+  <title>A Probabilistic Transformation of Distance-Based Outliers</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="files/style.css" />
+  <link rel="stylesheet" href="files/custom.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">A Probabilistic Transformation of Distance-Based
+Outliers</h1>
+<p class="author">David Muhr</p>
+<p class="author">Michael Affenzeller</p>
+<p class="author">Josef Küng</p>
+<p class="date">2023-07-11</p>
+</header>
+<p><a href="/">Back to the overview</a></p>
+<h3 id="hazelnut-normal">Hazelnut (normal)</h3>
+<p><img src="/images/hazelnut/normal/35.png" /> <img
+src="/images/hazelnut/normal/36.png" /> <img
+src="/images/hazelnut/normal/37.png" /> <img
+src="/images/hazelnut/normal/38.png" /> <img
+src="/images/hazelnut/normal/39.png" /> <img
+src="/images/hazelnut/normal/40.png" /> <img
+src="/images/hazelnut/normal/41.png" /> <img
+src="/images/hazelnut/normal/42.png" /> <img
+src="/images/hazelnut/normal/43.png" /> <img
+src="/images/hazelnut/normal/44.png" /> <img
+src="/images/hazelnut/normal/45.png" /> <img
+src="/images/hazelnut/normal/46.png" /> <img
+src="/images/hazelnut/normal/47.png" /> <img
+src="/images/hazelnut/normal/48.png" /> <img
+src="/images/hazelnut/normal/49.png" /> <img
+src="/images/hazelnut/normal/50.png" /> <img
+src="/images/hazelnut/normal/51.png" /> <img
+src="/images/hazelnut/normal/52.png" /> <img
+src="/images/hazelnut/normal/53.png" /> <img
+src="/images/hazelnut/normal/54.png" /> <img
+src="/images/hazelnut/normal/55.png" /> <img
+src="/images/hazelnut/normal/56.png" /> <img
+src="/images/hazelnut/normal/57.png" /> <img
+src="/images/hazelnut/normal/58.png" /> <img
+src="/images/hazelnut/normal/59.png" /> <img
+src="/images/hazelnut/normal/60.png" /> <img
+src="/images/hazelnut/normal/61.png" /> <img
+src="/images/hazelnut/normal/62.png" /> <img
+src="/images/hazelnut/normal/63.png" /> <img
+src="/images/hazelnut/normal/64.png" /> <img
+src="/images/hazelnut/normal/65.png" /> <img
+src="/images/hazelnut/normal/66.png" /> <img
+src="/images/hazelnut/normal/67.png" /> <img
+src="/images/hazelnut/normal/68.png" /> <img
+src="/images/hazelnut/normal/69.png" /> <img
+src="/images/hazelnut/normal/70.png" /> <img
+src="/images/hazelnut/normal/71.png" /> <img
+src="/images/hazelnut/normal/72.png" /> <img
+src="/images/hazelnut/normal/73.png" /> <img
+src="/images/hazelnut/normal/74.png" /></p>
+<h3 id="hazelnut-outlier">Hazelnut (outlier)</h3>
+<p><img src="/images/hazelnut/outlier/0.png" /> <img
+src="/images/hazelnut/outlier/1.png" /> <img
+src="/images/hazelnut/outlier/10.png" /> <img
+src="/images/hazelnut/outlier/100.png" /> <img
+src="/images/hazelnut/outlier/101.png" /> <img
+src="/images/hazelnut/outlier/102.png" /> <img
+src="/images/hazelnut/outlier/103.png" /> <img
+src="/images/hazelnut/outlier/104.png" /> <img
+src="/images/hazelnut/outlier/105.png" /> <img
+src="/images/hazelnut/outlier/106.png" /> <img
+src="/images/hazelnut/outlier/107.png" /> <img
+src="/images/hazelnut/outlier/108.png" /> <img
+src="/images/hazelnut/outlier/109.png" /> <img
+src="/images/hazelnut/outlier/11.png" /> <img
+src="/images/hazelnut/outlier/12.png" /> <img
+src="/images/hazelnut/outlier/13.png" /> <img
+src="/images/hazelnut/outlier/14.png" /> <img
+src="/images/hazelnut/outlier/15.png" /> <img
+src="/images/hazelnut/outlier/16.png" /> <img
+src="/images/hazelnut/outlier/17.png" /> <img
+src="/images/hazelnut/outlier/18.png" /> <img
+src="/images/hazelnut/outlier/19.png" /> <img
+src="/images/hazelnut/outlier/2.png" /> <img
+src="/images/hazelnut/outlier/20.png" /> <img
+src="/images/hazelnut/outlier/21.png" /> <img
+src="/images/hazelnut/outlier/22.png" /> <img
+src="/images/hazelnut/outlier/23.png" /> <img
+src="/images/hazelnut/outlier/24.png" /> <img
+src="/images/hazelnut/outlier/25.png" /> <img
+src="/images/hazelnut/outlier/26.png" /> <img
+src="/images/hazelnut/outlier/27.png" /> <img
+src="/images/hazelnut/outlier/28.png" /> <img
+src="/images/hazelnut/outlier/29.png" /> <img
+src="/images/hazelnut/outlier/3.png" /> <img
+src="/images/hazelnut/outlier/30.png" /> <img
+src="/images/hazelnut/outlier/31.png" /> <img
+src="/images/hazelnut/outlier/32.png" /> <img
+src="/images/hazelnut/outlier/33.png" /> <img
+src="/images/hazelnut/outlier/34.png" /> <img
+src="/images/hazelnut/outlier/4.png" /> <img
+src="/images/hazelnut/outlier/5.png" /> <img
+src="/images/hazelnut/outlier/6.png" /> <img
+src="/images/hazelnut/outlier/7.png" /> <img
+src="/images/hazelnut/outlier/75.png" /> <img
+src="/images/hazelnut/outlier/76.png" /> <img
+src="/images/hazelnut/outlier/77.png" /> <img
+src="/images/hazelnut/outlier/78.png" /> <img
+src="/images/hazelnut/outlier/79.png" /> <img
+src="/images/hazelnut/outlier/8.png" /> <img
+src="/images/hazelnut/outlier/80.png" /> <img
+src="/images/hazelnut/outlier/81.png" /> <img
+src="/images/hazelnut/outlier/82.png" /> <img
+src="/images/hazelnut/outlier/83.png" /> <img
+src="/images/hazelnut/outlier/84.png" /> <img
+src="/images/hazelnut/outlier/85.png" /> <img
+src="/images/hazelnut/outlier/86.png" /> <img
+src="/images/hazelnut/outlier/87.png" /> <img
+src="/images/hazelnut/outlier/88.png" /> <img
+src="/images/hazelnut/outlier/89.png" /> <img
+src="/images/hazelnut/outlier/9.png" /> <img
+src="/images/hazelnut/outlier/90.png" /> <img
+src="/images/hazelnut/outlier/91.png" /> <img
+src="/images/hazelnut/outlier/92.png" /> <img
+src="/images/hazelnut/outlier/93.png" /> <img
+src="/images/hazelnut/outlier/94.png" /> <img
+src="/images/hazelnut/outlier/95.png" /> <img
+src="/images/hazelnut/outlier/96.png" /> <img
+src="/images/hazelnut/outlier/97.png" /> <img
+src="/images/hazelnut/outlier/98.png" /> <img
+src="/images/hazelnut/outlier/99.png" /></p>
+</body>
+</html>

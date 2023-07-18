@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="David Muhr" />
+  <meta name="author" content="Michael Affenzeller" />
+  <meta name="author" content="Josef Küng" />
+  <meta name="dcterms.date" content="2023-07-11" />
+  <title>A Probabilistic Transformation of Distance-Based Outliers</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="files/style.css" />
+  <link rel="stylesheet" href="files/custom.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">A Probabilistic Transformation of Distance-Based
+Outliers</h1>
+<p class="author">David Muhr</p>
+<p class="author">Michael Affenzeller</p>
+<p class="author">Josef Küng</p>
+<p class="date">2023-07-11</p>
+</header>
+<p><a href="/">Back to the overview</a></p>
+<h3 id="cable-normal">Cable (normal)</h3>
+<p><img src="/images/cable/normal/100.png" /> <img
+src="/images/cable/normal/101.png" /> <img
+src="/images/cable/normal/102.png" /> <img
+src="/images/cable/normal/103.png" /> <img
+src="/images/cable/normal/104.png" /> <img
+src="/images/cable/normal/105.png" /> <img
+src="/images/cable/normal/106.png" /> <img
+src="/images/cable/normal/107.png" /> <img
+src="/images/cable/normal/108.png" /> <img
+src="/images/cable/normal/109.png" /> <img
+src="/images/cable/normal/110.png" /> <img
+src="/images/cable/normal/111.png" /> <img
+src="/images/cable/normal/112.png" /> <img
+src="/images/cable/normal/113.png" /> <img
+src="/images/cable/normal/114.png" /> <img
+src="/images/cable/normal/115.png" /> <img
+src="/images/cable/normal/116.png" /> <img
+src="/images/cable/normal/117.png" /> <img
+src="/images/cable/normal/60.png" /> <img
+src="/images/cable/normal/61.png" /> <img
+src="/images/cable/normal/62.png" /> <img
+src="/images/cable/normal/63.png" /> <img
+src="/images/cable/normal/64.png" /> <img
+src="/images/cable/normal/65.png" /> <img
+src="/images/cable/normal/66.png" /> <img
+src="/images/cable/normal/67.png" /> <img
+src="/images/cable/normal/68.png" /> <img
+src="/images/cable/normal/69.png" /> <img
+src="/images/cable/normal/70.png" /> <img
+src="/images/cable/normal/71.png" /> <img
+src="/images/cable/normal/72.png" /> <img
+src="/images/cable/normal/73.png" /> <img
+src="/images/cable/normal/74.png" /> <img
+src="/images/cable/normal/75.png" /> <img
+src="/images/cable/normal/76.png" /> <img
+src="/images/cable/normal/77.png" /> <img
+src="/images/cable/normal/78.png" /> <img
+src="/images/cable/normal/79.png" /> <img
+src="/images/cable/normal/80.png" /> <img
+src="/images/cable/normal/81.png" /> <img
+src="/images/cable/normal/82.png" /> <img
+src="/images/cable/normal/83.png" /> <img
+src="/images/cable/normal/84.png" /> <img
+src="/images/cable/normal/85.png" /> <img
+src="/images/cable/normal/86.png" /> <img
+src="/images/cable/normal/87.png" /> <img
+src="/images/cable/normal/88.png" /> <img
+src="/images/cable/normal/89.png" /> <img
+src="/images/cable/normal/90.png" /> <img
+src="/images/cable/normal/91.png" /> <img
+src="/images/cable/normal/92.png" /> <img
+src="/images/cable/normal/93.png" /> <img
+src="/images/cable/normal/94.png" /> <img
+src="/images/cable/normal/95.png" /> <img
+src="/images/cable/normal/96.png" /> <img
+src="/images/cable/normal/97.png" /> <img
+src="/images/cable/normal/98.png" /> <img
+src="/images/cable/normal/99.png" /></p>
+<h3 id="cable-outlier">Cable (outlier)</h3>
+<p><img src="/images/cable/outlier/0.png" /> <img
+src="/images/cable/outlier/1.png" /> <img
+src="/images/cable/outlier/10.png" /> <img
+src="/images/cable/outlier/11.png" /> <img
+src="/images/cable/outlier/118.png" /> <img
+src="/images/cable/outlier/119.png" /> <img
+src="/images/cable/outlier/12.png" /> <img
+src="/images/cable/outlier/120.png" /> <img
+src="/images/cable/outlier/121.png" /> <img
+src="/images/cable/outlier/122.png" /> <img
+src="/images/cable/outlier/123.png" /> <img
+src="/images/cable/outlier/124.png" /> <img
+src="/images/cable/outlier/125.png" /> <img
+src="/images/cable/outlier/126.png" /> <img
+src="/images/cable/outlier/127.png" /> <img
+src="/images/cable/outlier/128.png" /> <img
+src="/images/cable/outlier/129.png" /> <img
+src="/images/cable/outlier/13.png" /> <img
+src="/images/cable/outlier/130.png" /> <img
+src="/images/cable/outlier/131.png" /> <img
+src="/images/cable/outlier/132.png" /> <img
+src="/images/cable/outlier/133.png" /> <img
+src="/images/cable/outlier/134.png" /> <img
+src="/images/cable/outlier/135.png" /> <img
+src="/images/cable/outlier/136.png" /> <img
+src="/images/cable/outlier/137.png" /> <img
+src="/images/cable/outlier/138.png" /> <img
+src="/images/cable/outlier/139.png" /> <img
+src="/images/cable/outlier/14.png" /> <img
+src="/images/cable/outlier/140.png" /> <img
+src="/images/cable/outlier/141.png" /> <img
+src="/images/cable/outlier/142.png" /> <img
+src="/images/cable/outlier/143.png" /> <img
+src="/images/cable/outlier/144.png" /> <img
+src="/images/cable/outlier/145.png" /> <img
+src="/images/cable/outlier/146.png" /> <img
+src="/images/cable/outlier/147.png" /> <img
+src="/images/cable/outlier/148.png" /> <img
+src="/images/cable/outlier/149.png" /> <img
+src="/images/cable/outlier/15.png" /> <img
+src="/images/cable/outlier/16.png" /> <img
+src="/images/cable/outlier/17.png" /> <img
+src="/images/cable/outlier/18.png" /> <img
+src="/images/cable/outlier/19.png" /> <img
+src="/images/cable/outlier/2.png" /> <img
+src="/images/cable/outlier/20.png" /> <img
+src="/images/cable/outlier/21.png" /> <img
+src="/images/cable/outlier/22.png" /> <img
+src="/images/cable/outlier/23.png" /> <img
+src="/images/cable/outlier/24.png" /> <img
+src="/images/cable/outlier/25.png" /> <img
+src="/images/cable/outlier/26.png" /> <img
+src="/images/cable/outlier/27.png" /> <img
+src="/images/cable/outlier/28.png" /> <img
+src="/images/cable/outlier/29.png" /> <img
+src="/images/cable/outlier/3.png" /> <img
+src="/images/cable/outlier/30.png" /> <img
+src="/images/cable/outlier/31.png" /> <img
+src="/images/cable/outlier/32.png" /> <img
+src="/images/cable/outlier/33.png" /> <img
+src="/images/cable/outlier/34.png" /> <img
+src="/images/cable/outlier/35.png" /> <img
+src="/images/cable/outlier/36.png" /> <img
+src="/images/cable/outlier/37.png" /> <img
+src="/images/cable/outlier/38.png" /> <img
+src="/images/cable/outlier/39.png" /> <img
+src="/images/cable/outlier/4.png" /> <img
+src="/images/cable/outlier/40.png" /> <img
+src="/images/cable/outlier/41.png" /> <img
+src="/images/cable/outlier/42.png" /> <img
+src="/images/cable/outlier/43.png" /> <img
+src="/images/cable/outlier/44.png" /> <img
+src="/images/cable/outlier/45.png" /> <img
+src="/images/cable/outlier/46.png" /> <img
+src="/images/cable/outlier/47.png" /> <img
+src="/images/cable/outlier/48.png" /> <img
+src="/images/cable/outlier/49.png" /> <img
+src="/images/cable/outlier/5.png" /> <img
+src="/images/cable/outlier/50.png" /> <img
+src="/images/cable/outlier/51.png" /> <img
+src="/images/cable/outlier/52.png" /> <img
+src="/images/cable/outlier/53.png" /> <img
+src="/images/cable/outlier/54.png" /> <img
+src="/images/cable/outlier/55.png" /> <img
+src="/images/cable/outlier/56.png" /> <img
+src="/images/cable/outlier/57.png" /> <img
+src="/images/cable/outlier/58.png" /> <img
+src="/images/cable/outlier/59.png" /> <img
+src="/images/cable/outlier/6.png" /> <img
+src="/images/cable/outlier/7.png" /> <img
+src="/images/cable/outlier/8.png" /> <img
+src="/images/cable/outlier/9.png" /></p>
+</body>
+</html>

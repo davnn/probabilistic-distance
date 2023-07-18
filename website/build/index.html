@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="David Muhr" />
+  <meta name="author" content="Michael Affenzeller" />
+  <meta name="author" content="Josef Küng" />
+  <meta name="dcterms.date" content="2023-07-11" />
+  <title>A Probabilistic Transformation of Distance-Based Outliers</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="files/style.css" />
+  <link rel="stylesheet" href="files/custom.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">A Probabilistic Transformation of Distance-Based
+Outliers</h1>
+<p class="author">David Muhr</p>
+<p class="author">Michael Affenzeller</p>
+<p class="author">Josef Küng</p>
+<p class="date">2023-07-11</p>
+</header>
+<p>Distance-based outlier detection methods are widely used across data
+domains, yet the results of those methods are often tricky to interpret.
+In particular, distance-based outlier scores require some additional
+context for interpretation to convert the scores into binary decisions.
+Previous methods to transform distance-based scores into some
+interpretable form were either algorithm-specific, or completely
+algorithm-agnostic based purely on the resulting scores. In our work, we
+propose to use the distance-information to neighboring data points, a
+prerequisite common across distance-based outlier detection algorithms,
+to determine distance probability distributions and, subsequently, use
+the distributions to turn distance-based outlier scores into
+interpretable outlier probabilities. We show that this transformation
+does not impact detection performance and significantly increases the
+contrast between normal and outlier scores. To evaluate the proposed
+probabilistic transformation, we generalize commonly used k-nearest
+neighbors outlier detection methods as weighted k-nearest neighbors
+outlier detection and evaluate it on a wide range of tabular datasets.
+We further integrate our probabilistic transformation into the popular
+PatchCore method and show how the resulting ProbabilisticPatchCore
+method improves upon the original specification.</p>
+<pre><code>@article{Muhr2023,
+  doi = {https://doi.org/10.3390/make5030042},
+  url = {https://www.mdpi.com/2504-4990/5/3/42},
+  year = {2023},
+  publisher = {TBD},
+  volume = {5},
+  number = {3},
+  pages = {782-802},
+  author = {David Muhr, Michael Affenzeller and Josef Küng},
+  title = {A Probabilistic Transformation of Distance-Based Outliers},
+  journal = {Machine Learning and Knowledge Extraction}
+}</code></pre>
+<p>To demonstrate the difference between distance-based and
+probabilistic outlier scores, we visualize the distance-based and
+probabilistic PatchCore scores for all test images of the <a
+href="https://www.mvtec.com/company/research/datasets/mvtec-ad">MVTecAD</a>
+dataset.</p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 16%" />
+<col style="width: 15%" />
+<col style="width: 16%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Train</th>
+<th>Normal</th>
+<th>Outlier</th>
+<th>Contrast</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="/carpet.html">Carpet</a></td>
+<td>280</td>
+<td>28</td>
+<td>89</td>
+<td>787</td>
+</tr>
+<tr class="even">
+<td><a href="/grid.html">Grid</a></td>
+<td>264</td>
+<td>21</td>
+<td>57</td>
+<td>258</td>
+</tr>
+<tr class="odd">
+<td><a href="/leather.html">Leather</a></td>
+<td>245</td>
+<td>32</td>
+<td>92</td>
+<td>186</td>
+</tr>
+<tr class="even">
+<td><a href="/tile.html">Tile</a></td>
+<td>230</td>
+<td>33</td>
+<td>84</td>
+<td>1024</td>
+</tr>
+<tr class="odd">
+<td><a href="/wood.html">Wood</a></td>
+<td>247</td>
+<td>19</td>
+<td>60</td>
+<td>279</td>
+</tr>
+<tr class="even">
+<td><a href="/bottle.html">Bottle</a></td>
+<td>209</td>
+<td>20</td>
+<td>63</td>
+<td>1024</td>
+</tr>
+<tr class="odd">
+<td><a href="/cable.html">Cable</a></td>
+<td>224</td>
+<td>58</td>
+<td>92</td>
+<td>1024</td>
+</tr>
+<tr class="even">
+<td><a href="/capsule.html">Capsule</a></td>
+<td>219</td>
+<td>23</td>
+<td>109</td>
+<td>191</td>
+</tr>
+<tr class="odd">
+<td><a href="/hazelnut.html">Hazelnut</a></td>
+<td>391</td>
+<td>40</td>
+<td>70</td>
+<td>667</td>
+</tr>
+<tr class="even">
+<td><a href="/metal_nut.html">Metal Nut</a></td>
+<td>220</td>
+<td>22</td>
+<td>93</td>
+<td>713</td>
+</tr>
+<tr class="odd">
+<td><a href="/pill.html">Pill</a></td>
+<td>267</td>
+<td>26</td>
+<td>141</td>
+<td>1024</td>
+</tr>
+<tr class="even">
+<td><a href="/screw.html">Screw</a></td>
+<td>320</td>
+<td>41</td>
+<td>119</td>
+<td>105</td>
+</tr>
+<tr class="odd">
+<td><a href="/toothbrush.html">Toothbrush</a></td>
+<td>60</td>
+<td>12</td>
+<td>30</td>
+<td>346</td>
+</tr>
+<tr class="even">
+<td><a href="/transistor.html">Transistor</a></td>
+<td>213</td>
+<td>60</td>
+<td>40</td>
+<td>1024</td>
+</tr>
+<tr class="odd">
+<td><a href="/zipper.html">Zipper</a></td>
+<td>240</td>
+<td>32</td>
+<td>119</td>
+<td>900</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
