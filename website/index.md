@@ -50,18 +50,18 @@ all test images of the
 
 | Dataset                         | Train          | Normal        | Outlier        | Contrast     |
 |---------------------------------|----------------|---------------|----------------|---------------
-| [Carpet](/carpet.html)          | 280            | 28            | 89             | 787          |
-| [Grid](/grid.html)              | 264            | 21            | 57             | 258          |
-| [Leather](/leather.html)        | 245            | 32            | 92             | 186          |
-| [Tile](/tile.html)              | 230            | 33            | 84             | 1024         |
-| [Wood](/wood.html)              | 247            | 19            | 60             | 279          |
-| [Bottle](/bottle.html)          | 209            | 20            | 63             | 1024         |
-| [Cable](/cable.html)            | 224            | 58            | 92             | 1024         |
-| [Capsule](/capsule.html)        | 219            | 23            | 109            | 191          |
-| [Hazelnut](/hazelnut.html)      | 391            | 40            | 70             | 667          |
-| [Metal Nut](/metal_nut.html)    | 220            | 22            | 93             | 713          |
-| [Pill](/pill.html)              | 267            | 26            | 141            | 1024         |
-| [Screw](/screw.html)            | 320            | 41            | 119            | 105          |
-| [Toothbrush](/toothbrush.html)  | 60             | 12            | 30             | 346          |
-| [Transistor](/transistor.html)  | 213            | 60            | 40             | 1024         |
-| [Zipper](/zipper.html)          | 240            | 32            | 119            | 900          |
+| [Carpet](carpet.html)          | 280            | 28            | 89             | 787          |
+| [Grid](grid.html)              | 264            | 21            | 57             | 258          |
+| [Leather](leather.html)        | 245            | 32            | 92             | 186          |
+| [Tile](tile.html)              | 230            | 33            | 84             | 1024         |
+| [Wood](wood.html)              | 247            | 19            | 60             | 279          |
+| [Bottle](bottle.html)          | 209            | 20            | 63             | 1024         |
+| [Cable](cable.html)            | 224            | 58            | 92             | 1024         |
+| [Capsule](capsule.html)        | 219            | 23            | 109            | 191          |
+| [Hazelnut](hazelnut.html)      | 391            | 40            | 70             | 667          |
+| [Metal Nut](metal_nut.html)    | 220            | 22            | 93             | 713          |
+| [Pill](pill.html)              | 267            | 26            | 141            | 1024         |
+| [Screw](screw.html)            | 320            | 41            | 119            | 105          |
+| [Toothbrush](toothbrush.html)  | 60             | 12            | 30             | 346          |
+| [Transistor](transistor.html)  | 213            | 60            | 40             | 1024         |
+| [Zipper](zipper.html)          | 240            | 32            | 119            | 900          |
